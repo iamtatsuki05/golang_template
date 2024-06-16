@@ -1,11 +1,11 @@
-package main;
+package main
 
 import (
-    "fmt"
-    "app/src/project"
+	"app/src/project"
+	"fmt"
 )
 
 func main() {
-    fmt.Println("Version: ", project.Version)
-    fmt.Println("Package Dir: ", project.PACKAGE_DIR)
+	fmt.Println("Version: ", project.Version)
+	fmt.Println("Package Dir: ", project.PACKAGE_DIR)
 }

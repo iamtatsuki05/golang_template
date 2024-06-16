@@ -1,9 +1,10 @@
 package project
 
 import (
-	"testing"
-	"github.com/stretchr/testify/assert"
 	"app/src/project"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestVersion(t *testing.T) {
