@@ -24,3 +24,7 @@ vet:
 staticcheck:
 	@echo "Running staticcheck..."
 	@$(STATICCHECK_CMD) $(SRC_DIRS)
+
+test:
+	@echo "Running go test..."
+	@$(GO_CMD) test -v ./src
