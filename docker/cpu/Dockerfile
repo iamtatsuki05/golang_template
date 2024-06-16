@@ -37,16 +37,18 @@ RUN add-apt-repository ppa:longsleep/golang-backports && \
   golang-${GO_VERSION} \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-
 # Create symlink for Go
 RUN ln -s /usr/lib/go-${GO_VERSION} /usr/local/go
 
-RUN go version
-
 # Copy source
 COPY ./src ${WORKDIR}
+
 
 FROM base AS dev
 WORKDIR ${WORKDIR}
 
 COPY . ${WORKDIR}
+
+# Install Go tools
+COPY go.mod go.sum ${WORKDIR}
+RUN go mod download
