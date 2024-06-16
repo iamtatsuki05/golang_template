@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  golang:
+    tty: true
+    stdin_open: true
+    user: root
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: docker/cpu/Dockerfile
+      # secrets:
+      #   - github_token
+      args:
+        progress: plain
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    ports:
+      - "8080:8080"
+    # command:
+    #   go run src/main.go
+# secrets:
+#   github_token:
+#     file: ${HOME}/.git-credentials
