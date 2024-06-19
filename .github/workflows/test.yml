@@ -28,3 +28,5 @@ jobs:
 
     - name: Run Makefile targets
       run: make all
+      env:
+        PATH: $HOME/go/bin:$PATH
