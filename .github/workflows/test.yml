@@ -27,6 +27,14 @@ jobs:
       if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
       run: go mod download
 
+    - name: Install linters and formatters
+      run: |
+        GOBIN=$HOME/go/bin go install golang.org/x/lint/golint@latest
+        GOBIN=$HOME/go/bin go install honnef.co/go/tools/cmd/staticcheck@latest
+        GOBIN=$HOME/go/bin go install golang.org/x/tools/cmd/goimports@latest
+      env:
+        PATH: $HOME/go/bin:$PATH
+
     - name: Run go fmt
       run: go fmt ./src
 
